@@ -1,4 +1,6 @@
-# reactCourse
+# React Review 
+
+- It has been a while since i've learned react. So this is a review of what i've been review 
 
 # Hooks
 - wtch the ruls of hooks in practice section 13, 160
@@ -56,4 +58,11 @@ Common questions:
 - needs to start with **use**
   - not optional 
 - ![Screenshot 2024-06-12 at 8 31 54 PM](https://github.com/angeldzzz23/reactCourse/assets/29695936/ba5690c6-0dbc-417b-8e3b-57a0cc390d7e)
+
+# Vite
+
+
+# Javascript 
+
+
 
