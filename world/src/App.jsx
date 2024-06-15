@@ -1,11 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Product from './pages/Product'
-import Pricing from './pages/Pricing'
-import HomePage from './pages/Homepage'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Product from './pages/Product';
+import Pricing from './pages/Pricing';
+import HomePage from './pages/Homepage';
+import PageNotFound from './pages/PageNotFound';
+
 
 function App() {
 
@@ -15,7 +17,7 @@ function App() {
       <Route path='/' element={<HomePage />} /> 
       <Route path='product' element={<Product />} /> 
       <Route path='pricing' element={<Pricing />} /> 
-
+      <Route path='*' element={<PageNotFound />}/>
     </Routes>
 
 
