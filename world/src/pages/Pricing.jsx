@@ -1,6 +1,6 @@
 
 function Pricing() {
-    return <div>Product</div>
+    return <div color="red">Pricing</div>
 }
     
 export default Pricing;
