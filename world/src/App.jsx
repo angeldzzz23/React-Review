@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Product from './pages/Product';
 import Pricing from './pages/Pricing';
 import HomePage from './pages/Homepage';
@@ -48,7 +48,7 @@ function App() {
       <Route path='login' element={<Login />} /> 
 
       <Route path='app' element={<AppLayout />} >
-          <Route index element={<CityList cities={cities} isLoading={isLoading} />} />
+          <Route index element={<Navigate replace to={"cities"} />} />
           <Route path='cities'
            element={<CityList 
            cities={cities} 
