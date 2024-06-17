@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
@@ -12,7 +12,29 @@ import Login from './pages/Login';
 import CityList from './components/CityList';
 
 
+
 function App() {
+  
+  const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const BASE_URL = 'http://localhost:9000';
+
+  useEffect(function () {
+    async function fetchCities() {
+      try {
+        setIsLoading(true);
+        const res = await fetch(`${BASE_URL}/cities`);  // Correct string interpolation
+        const data = await res.json();
+        setCities(data);
+      } catch {
+        alert("there was an error loadcing data");
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchCities();
+  }, []);
 
   return (
   <BrowserRouter> 
@@ -23,8 +45,8 @@ function App() {
       <Route path='login' element={<Login />} /> 
 
       <Route path='app' element={<AppLayout />} >
-          <Route index element={<CityList />} />
-          <Route path='cities' element={<CityList />}/>
+          <Route index element={<CityList cities={cities} isLoading={isLoading} />} />
+          <Route path='cities' element={<CityList cities={cities} isLoading={isLoading} />}/>
           <Route path='countries' element={<p>List of Countries</p>}/>
           <Route path='form' element={<p>form</p>}/>
 
