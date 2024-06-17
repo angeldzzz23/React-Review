@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import CityList from './components/CityList';
 import CountriesList from './components/CountriesList';
 import City from './components/City';
+import Form from './components/Form';
 
 
 
@@ -61,7 +62,7 @@ function App() {
             element={<CountriesList 
             cities={cities} 
             isLoading={isLoading}/>}/>
-          <Route path='form' element={<p>form</p>}/>
+          <Route path='form' element={ <Form />}/>
 
       </Route>
 
