@@ -9,6 +9,7 @@ import HomePage from './pages/Homepage';
 import AppLayout from './pages/AppLayout';
 import PageNotFound from './pages/PageNotFound';
 import Login from './pages/Login';
+import CityList from './components/CityList';
 
 
 function App() {
@@ -22,8 +23,8 @@ function App() {
       <Route path='login' element={<Login />} /> 
 
       <Route path='app' element={<AppLayout />} >
-          <Route index element={<p>List Of Cities</p>} />
-          <Route path='cities' element={<p>List of Cities</p>}/>
+          <Route index element={<CityList />} />
+          <Route path='cities' element={<CityList />}/>
           <Route path='countries' element={<p>List of Countries</p>}/>
           <Route path='form' element={<p>form</p>}/>
 
