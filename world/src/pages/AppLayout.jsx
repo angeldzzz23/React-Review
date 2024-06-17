@@ -8,7 +8,8 @@ function AppLayout() {
          <Sidebar />
          <Map />
 
-    </div>);
+    </div>
+    );
 }
 
 export default AppLayout;
