@@ -14,11 +14,11 @@ const {cityName, emoji, date} = city;
 
     return (
         <li className={styles.CityItem}>
-        <span className={styles.emoji}>{emoji}</span>
-        <h3 className={styles.cityName}>{emoji}</h3>
-        <time className={styles.date}>{formatDate(date)}</time>
-        <button className={styles.deleteBtn}>&times;</button>
-        
+            <span className={styles.emoji}>{emoji}</span>
+            <h3 className={styles.cityName}>{emoji}</h3>
+            <time className={styles.date}>{formatDate(date)}</time>
+            <button className={styles.deleteBtn}>&times;</button>
+            
         </li>
     );
 

@@ -10,6 +10,7 @@ import AppLayout from './pages/AppLayout';
 import PageNotFound from './pages/PageNotFound';
 import Login from './pages/Login';
 import CityList from './components/CityList';
+import CountriesList from './components/CountriesList';
 
 
 
@@ -47,7 +48,11 @@ function App() {
       <Route path='app' element={<AppLayout />} >
           <Route index element={<CityList cities={cities} isLoading={isLoading} />} />
           <Route path='cities' element={<CityList cities={cities} isLoading={isLoading} />}/>
-          <Route path='countries' element={<p>List of Countries</p>}/>
+          <Route 
+            path='countries' 
+            element={<CountriesList 
+            cities={cities} 
+            isLoading={isLoading}/>}/>
           <Route path='form' element={<p>form</p>}/>
 
       </Route>
