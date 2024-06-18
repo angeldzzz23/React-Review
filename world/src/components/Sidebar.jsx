@@ -5,7 +5,7 @@ import styles from './Sidebar.module.css';
 
 
 function Sidebar() {
-    return (<div className={styles.Sidebar}>
+    return (<div className={styles.sidebar}>
         <Logo />
         <AppNav />
 
