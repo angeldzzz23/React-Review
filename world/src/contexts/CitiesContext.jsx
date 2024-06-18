@@ -55,20 +55,24 @@ async function createCity(newCity) {
     const data = await res.json();
     setCities(cities=>[...cities, data]);
   } catch {
-    alert("there was an error loadcing data");
+    alert("there was an error creating data");
   } finally {
     setIsLoading(false);
 }
 }
 
-async function getCity(id) {
+
+async function deleteCity(id) {
   try {
     setIsLoading(true);
-    const res = await fetch(`${BASE_URL}/cities/${id}`);  // Correct string interpolation
-    const data = await res.json();
-    setCurrentCity(data);
+    const res = await fetch(`${BASE_URL}/cities/${id}`, {
+      method: "DELETE", 
+    });
+
+    setCities(cities => cities.filter((city) => city.id !== id));
+    
   } catch {
-    alert("there was an error loadcing data");
+    alert("there was an error deleting city");
   } finally {
     setIsLoading(false);
 }
@@ -83,6 +87,7 @@ value={{
     currentCity,
     getCity,
     createCity,
+    deleteCity,
 }}>
     {children}
 </CitiesContext.Provider>);
