@@ -1,30 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": "17806751"
-    },
-    {
-      "id": "98a5",
-      "cityName": "Cartelle",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-06-18T22:22:49.951Z",
-      "notes": "qq",
-      "position": {
-        "lat": "42.2366518803206",
-        "lng": "-8.041992187500002"
-      }
-    },
-    {
       "id": "010f",
       "cityName": "Ferreira",
       "country": "Spain",
@@ -46,6 +22,18 @@
       "position": {
         "lat": "38.298559092254365",
         "lng": "-6.064453125000001"
+      }
+    },
+    {
+      "id": "d66f",
+      "cityName": "Immediate Geographic Region of Posse-Campos Belos",
+      "country": "Brazil",
+      "emoji": "🇧🇷",
+      "date": "2024-06-18T23:11:23.199Z",
+      "notes": "Helo world",
+      "position": {
+        "lat": "-14.179186142354169",
+        "lng": "-46.58203125000001"
       }
     }
   ]
