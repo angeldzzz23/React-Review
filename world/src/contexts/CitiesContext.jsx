@@ -34,6 +34,7 @@ function reducer(state, action) {
         ...state,
         isLoading: false,
         cities: state.cities.filter((city) => city.id !== action.payload),
+        currentCity: {}, 
       };
     case 'rejected':
       return {
@@ -45,7 +46,7 @@ function reducer(state, action) {
 }
 
 function CitiesProvider({ children }) {
-  const [{ cities, isLoading, currentCity }, dispatch] = useReducer(reducer, initialState);
+  const [{ cities, isLoading, currentCity, error}, dispatch] = useReducer(reducer, initialState);
 
   const BASE_URL = 'http://localhost:9000';
 
@@ -66,6 +67,12 @@ function CitiesProvider({ children }) {
 
   // Getting the city 
   async function getCity(id) {
+
+    console.lo
+
+    if (Number(id) === currentCity.id) return; 
+
+
     dispatch({ type: "loading" });
     try {
       const res = await fetch(`${BASE_URL}/cities/${id}`);
@@ -113,6 +120,7 @@ function CitiesProvider({ children }) {
         cities,
         isLoading,
         currentCity,
+        error,
         getCity,
         createCity,
         deleteCity,
