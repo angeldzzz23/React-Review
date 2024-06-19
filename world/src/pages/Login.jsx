@@ -13,11 +13,13 @@ export default function Login() {
   const {login, isAuthenticated} = useAuth();
   const navigate = useNavigate();
 
+
+  // when the use
   useEffect(
     function(){
     
     if (isAuthenticated) {
-      navigate("/app");
+      navigate("/app", {replace:true});
     }
 
   }, [isAuthenticated]) 
