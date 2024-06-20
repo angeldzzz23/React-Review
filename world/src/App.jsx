@@ -1,21 +1,32 @@
-import { useEffect, useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import { CitiesProvider } from './contexts/CitiesContext';
+import { AuthProvider } from './contexts/FakeAuthContext';
+import SpinnerFullPage  from "./components/SpinnerFullPage"
+import ProtectedRoute from './pages/protectedRoutes';
+import React, { lazy, Suspense } from 'react';
+
+// import Product from './pages/Product';
+// import Pricing from './pages/Pricing';
+// import HomePage from './pages/Homepage';
+// import Login from './pages/Login';
+// import AppLayout from './pages/AppLayout';
+// import PageNotFound from './pages/PageNotFound';
+
+const Product = lazy(() => import('./pages/Product'));
+const Pricing = lazy(() => import('./pages/Pricing'));
+const HomePage = lazy(() => import('./pages/Homepage'));
+const Login = lazy(() => import('./pages/Login'));
+const AppLayout = lazy(() => import('./pages/AppLayout'));
+const PageNotFound = lazy(() => import('./pages/PageNotFound'));
+
+
+
 import './App.css';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Product from './pages/Product';
-import Pricing from './pages/Pricing';
-import HomePage from './pages/Homepage';
-import AppLayout from './pages/AppLayout';
-import PageNotFound from './pages/PageNotFound';
-import Login from './pages/Login';
+
 import CityList from './components/CityList';
 import CountriesList from './components/CountriesList';
 import City from './components/City';
 import Form from './components/Form';
-import { CitiesProvider } from './contexts/CitiesContext';
-import { AuthProvider } from './contexts/FakeAuthContext';
-import ProtectedRoute from './pages/protectedRoutes';
 
 
 
@@ -26,6 +37,9 @@ function App() {
     <AuthProvider>
     <CitiesProvider>
   <BrowserRouter> 
+  <Suspense fallback={<SpinnerFullPage />}>
+
+
     <Routes>
       <Route index element={<HomePage />} /> 
       <Route path='product' element={<Product />} /> 
@@ -53,7 +67,7 @@ function App() {
 
       <Route path='*' element={<PageNotFound />}/>
     </Routes>
-
+    </Suspense>
   </BrowserRouter>
   </CitiesProvider>
   </AuthProvider>

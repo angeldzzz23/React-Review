@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext, useReducer } from "react";
+import { useCallback, createContext, useState, useEffect, useContext, useReducer } from "react";
 
 const CitiesContext = createContext();
 
@@ -66,7 +66,7 @@ function CitiesProvider({ children }) {
   }, []);
 
   // Getting the city 
-  async function getCity(id) {
+  const getCity = useCallback( async function getCity(id) {
 
     console.lo
 
@@ -81,7 +81,8 @@ function CitiesProvider({ children }) {
     } catch {
       dispatch({ type: 'rejected', payload: "There was an error loading the city" });
     }
-  }
+
+  }, [currentCity.id]);
 
   // Creating a new city
   async function createCity(newCity) {
