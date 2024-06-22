@@ -6,17 +6,11 @@ import GlobalStyles from './styles/GlobalStyles';
 import Input from './ui/Input';
 
 import Button from "./ui/Button";
-
-const H1 = styled.h1`
-  font-size: 30px;
-  font-weight:600;
-  background-color:yellow;
-`;
+import Heading from './ui/Heading';
+import Row from './ui/Row';
 
 
-
-
-const StyledApp = styled.div`
+const StyledApp = styled.main`
 background-color:orangered;
 padding:20px;
 `;
@@ -27,13 +21,33 @@ function App() {
     <>
    <GlobalStyles />
    <StyledApp>
-    <H1>The wild ones </H1>
-    <Button onClick={() => alert("check in")}> check in</Button>
-    <Button onClick={() => alert("check out")}>Check out</Button>
+    <Row type='vertical'>
 
-    <Input type='number' placeholder='Number of guests' ></Input>
-    <Input type='number' placeholder='Number of guests' ></Input>
+   
+    <Row type='horizontal'>
 
+      <Heading as='h1'>The wild ones </Heading>
+      <div>
+        <Heading as='h2'>check in and check out </Heading>
+        <Button 
+        variation='primary' 
+        size='medium' 
+        onClick={() => alert("check in")}> check in</Button>
+        <Button 
+          variation='secondary' 
+          size='small' 
+        onClick={() => alert("check out")}>Check out</Button>
+      </div>
+    </Row>
+    
+    <Row type='vertical'>
+      <Heading as="h3">Form</Heading>
+      <form>
+        <Input type='number' placeholder='Number of guests' ></Input>
+        <Input type='number' placeholder='Number of guests' ></Input>
+      </form>
+    </Row>
+    </Row>
    </StyledApp>
    </>
   )
