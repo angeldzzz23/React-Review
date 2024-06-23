@@ -61,7 +61,7 @@ const Button = styled.button`
 
 Button.defaultProps = {
   variations: 'primary', 
-  size:'medium'
+  size:'medium',
 }
 
 export default Button;
