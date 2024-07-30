@@ -55,7 +55,7 @@ function CreateCabinForm({cabinToEdit = {}}) {
     if (isEditSession) {
       editCabin({newCabinData: {...data, image}, id:editId})
     } else {
-      mutate({...data, image: data.image[0]});
+      createCabin({...data, image: data.image[0]});
     }
 
    
