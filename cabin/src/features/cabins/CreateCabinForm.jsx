@@ -11,12 +11,18 @@ import { createEditCabin } from "../../services/apiCabins";
 import toast from "react-hot-toast";
 import FormRow from "../../ui/FormRow";
 import { useCreateCabin } from "./useCreateCabin";
+import { useEditCabin } from "./useEditCabin";
 // import { useFormAction } from "react-router-dom";
 
 function CreateCabinForm({cabinToEdit = {}}) {
 
+
   const {id: editId, ...editValues} = cabinToEdit;
   const isEditSession = Boolean(editId);
+
+
+  const {isCreating, createCabin} = useCreateCabin();
+  const {isEditing, editCabin} = useEditCabin()
 
   const {register, handleSubmit, reset, getValues, formState} = useForm({
     defaultValues: isEditSession ? editValues : {},
@@ -24,18 +30,7 @@ function CreateCabinForm({cabinToEdit = {}}) {
 
   const {errors} = formState;
 
-  const {isCreating, createCabin} = useCreateCabin();
-
-  const {mutate:editCabin, isLoading:isEditing } = 
-  useMutation({
-    mutationFn: ({newCabinData,id}) => 
-    createEditCabin(newCabinData, id), 
-    onSuccess: () => {
-      toast.success("cabin has been edited");
-      queryClient.invalidateQueries({queryKey:["cabins"]});
-      reset();
-    },
-  });
+  
 
   const isWorking = isCreating || isEditing;
 
@@ -44,7 +39,12 @@ function CreateCabinForm({cabinToEdit = {}}) {
     const image = typeof data.image === 'string' ? data.image : data.image[0];
 
     if (isEditSession) {
-      editCabin({newCabinData: {...data, image}, id:editId})
+      editCabin({newCabinData: {...data, image}, id:editId}, {
+        onSuccess: (data) => {
+          console.log(data);
+          reset();
+        }
+      });
     } else {
       createCabin({...data, image: data.image[0]}, {
           onSuccess: (data) => {
